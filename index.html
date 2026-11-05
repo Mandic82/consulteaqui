@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
-<title>Consulta de Horários</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- PWA -->
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#2575fc">
+<title>Consulta de Horários</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2563eb">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -21,305 +23,559 @@
 }
 
 body{
+
   min-height:100svh;
-  background:linear-gradient(135deg,#6a11cb,#2575fc);
+
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:16px;
-  color:#fff;
+
+  padding:20px;
+
+  overflow:hidden;
+
+  background:
+  linear-gradient(
+  135deg,
+  #172554,
+  #2563eb,
+  #60a5fa
+  );
+
+  background-size:400% 400%;
+
+  animation:aurora 18s ease infinite;
 
   transition:
-    background .7s ease,
-    color .5s ease,
-    opacity .3s ease;
+  background .8s ease,
+  color .5s ease,
+  opacity .3s ease;
+}
+
+/* FOTO DE FUNDO */
+
+body::before{
+
+  content:"";
+
+  position:fixed;
+
+  inset:0;
+
+  background:
+  url("https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1600&q=80");
+
+  background-size:cover;
+  background-position:center;
+
+  opacity:.10;
+
+  z-index:-2;
+
+}
+
+body::after{
+
+  content:"";
+
+  position:fixed;
+
+  width:900px;
+  height:900px;
+
+  right:-300px;
+  top:-250px;
+
+  background:
+  radial-gradient(
+  circle,
+  rgba(255,255,255,.30),
+  transparent 70%
+  );
+
+  filter:blur(90px);
+
+  z-index:-1;
+
+}
+
+@keyframes aurora{
+
+  0%{
+    background-position:0% 50%;
+  }
+
+  50%{
+    background-position:100% 50%;
+  }
+
+  100%{
+    background-position:0% 50%;
+  }
+
 }
 
 .container{
+
   width:100%;
-  max-width:420px;
-  background:rgba(255,255,255,.14);
-  backdrop-filter:blur(10px);
-  border-radius:22px;
-  padding:28px 24px;
-  box-shadow:0 16px 35px rgba(0,0,0,.25);
+  max-width:500px;
+
+  background:
+  rgba(255,255,255,.12);
+
+  backdrop-filter:blur(25px);
+
+  border:1px solid rgba(255,255,255,.15);
+
+  border-radius:32px;
+
+  padding:35px;
+
+  box-shadow:
+  0 20px 60px rgba(0,0,0,.30);
+
   text-align:center;
 
   transition:
-    background .7s ease,
-    box-shadow .7s ease,
-    transform .4s ease;
+  .4s ease;
 
-  animation:fadeIn .8s ease;
+  animation:fadeUp .8s ease;
+
 }
 
-@keyframes fadeIn{
+.container:hover{
+
+  transform:
+  translateY(-5px);
+
+}
+
+@keyframes fadeUp{
+
   from{
     opacity:0;
-    transform:translateY(12px);
+    transform:translateY(40px);
   }
+
   to{
     opacity:1;
     transform:translateY(0);
   }
+
 }
 
-.icon{
-  font-size:3.2rem;
-  margin-bottom:8px;
+/* HERO */
+
+.hero-icon{
+
+  width:120px;
+  height:120px;
+
+  margin:0 auto 18px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:
+  linear-gradient(
+  135deg,
+  rgba(255,255,255,.35),
+  rgba(255,255,255,.08)
+  );
+
+  backdrop-filter:blur(15px);
+
+  box-shadow:
+  0 15px 30px rgba(0,0,0,.25);
+
+}
+
+.hero-icon img{
+
+  width:75px;
+  height:75px;
+
+}
+
+.school-badge{
+
+  display:inline-block;
+
+  padding:8px 18px;
+
+  border-radius:999px;
+
+  background:
+  rgba(255,255,255,.18);
+
+  backdrop-filter:blur(12px);
+
+  font-size:12px;
+  font-weight:600;
+
+  letter-spacing:1px;
+
+  text-transform:uppercase;
+
+  margin-bottom:18px;
+
 }
 
 h1{
-  font-size:1.9rem;
-  margin-bottom:6px;
+
+  font-size:32px;
+  font-weight:700;
+
+  margin-bottom:10px;
 }
 
-p{
-  font-size:.95rem;
-  opacity:.95;
-  margin-bottom:22px;
+.subtitle{
+
+  font-size:15px;
+
+  line-height:1.6;
+
+  opacity:.92;
+
+  margin-bottom:25px;
+
+}
+
+.theme-btn{
+
+  margin-bottom:20px;
+
+  background:
+  rgba(255,255,255,.20);
+
+  color:#fff;
+
+  border:1px solid rgba(255,255,255,.25);
 }
 
 .form-group{
-  margin-bottom:18px;
+
   text-align:left;
+
+  margin-bottom:20px;
 }
 
 label{
-  font-size:.95rem;
-  margin-bottom:6px;
+
   display:block;
+
+  margin-bottom:8px;
+
+  font-weight:500;
 }
 
 select{
-  width:100%;
-  padding:14px;
-  font-size:1rem;
-  border-radius:14px;
-  border:none;
-  outline:none;
-  background:rgba(255,255,255,.95);
-  color:#333;
 
-  transition:
-    background-color .6s ease,
-    color .6s ease,
-    border-color .6s ease;
+  width:100%;
+
+  padding:15px;
+
+  border-radius:16px;
+
+  border:2px solid transparent;
+
+  outline:none;
+
+  background:
+  rgba(255,255,255,.92);
+
+  font-size:15px;
+
+  transition:.3s ease;
+}
+
+select:focus{
+
+  border-color:#60a5fa;
+
+  box-shadow:
+  0 0 0 4px rgba(96,165,250,.25);
+
 }
 
 button{
+
   width:100%;
+
   padding:16px;
-  font-size:1.1rem;
-  font-weight:600;
+
   border:none;
-  border-radius:16px;
-  background:#fff;
-  color:#2575fc;
+
+  border-radius:18px;
+
+  font-size:16px;
+  font-weight:600;
+
+  color:#fff;
+
   cursor:pointer;
 
-  transition:
-    background-color .6s ease,
-    color .6s ease,
-    transform .2s ease,
-    box-shadow .3s ease;
+  background:
+  linear-gradient(
+  135deg,
+  #60a5fa,
+  #2563eb
+  );
+
+  box-shadow:
+  0 10px 25px rgba(37,99,235,.45);
+
+  transition:.35s ease;
 }
 
 button:hover{
-  transform:translateY(-2px);
+
+  transform:
+  translateY(-4px)
+  scale(1.02);
+
+  box-shadow:
+  0 20px 40px rgba(37,99,235,.65);
 }
 
 button:active{
+
   transform:scale(.98);
 }
 
 footer{
-  margin-top:18px;
-  font-size:.78rem;
-  opacity:.85;
-  transition:color .6s ease;
-}
 
-/* BOTÃO TEMA */
+  margin-top:25px;
 
-.theme-btn{
-  margin-bottom:18px;
-  background:rgba(255,255,255,.20);
-  color:#fff;
-  border:1px solid rgba(255,255,255,.35);
-  backdrop-filter:blur(10px);
-}
+  font-size:12px;
 
-.theme-btn:hover{
-  background:rgba(255,255,255,.30);
-  transform:translateY(-2px);
+  color:
+  rgba(255,255,255,.80);
+
 }
 
 /* MODO ESCURO */
 
 body.dark{
-  background:linear-gradient(135deg,#0f172a,#1e293b);
+
+  background:
+  linear-gradient(
+  135deg,
+  #020617,
+  #0f172a,
+  #1e293b
+  );
 }
 
 body.dark .container{
-  background:rgba(15,23,42,.85);
+
+  background:
+  rgba(15,23,42,.86);
 }
 
 body.dark select{
+
   background:#334155;
   color:#fff;
-}
-
-body.dark button:not(.theme-btn){
-  background:#4f46e5;
-  color:#fff;
-}
-
-body.dark footer{
-  color:rgba(255,255,255,.8);
 }
 
 /* LOADING */
 
 .loading{
+
   position:fixed;
+
   inset:0;
-  background:linear-gradient(135deg,#6a11cb,#2575fc);
+
   display:none;
+
   align-items:center;
   justify-content:center;
+
   flex-direction:column;
+
+  background:
+  linear-gradient(
+  135deg,
+  #172554,
+  #2563eb
+  );
+
   z-index:9999;
 }
 
-body.dark .loading{
-  background:linear-gradient(135deg,#0f172a,#1e293b);
-}
-
 .spinner{
-  width:55px;
-  height:55px;
-  border:5px solid rgba(255,255,255,.3);
-  border-top:5px solid #fff;
+
+  width:65px;
+  height:65px;
+
+  border:6px solid rgba(255,255,255,.25);
+  border-top:6px solid #fff;
+
   border-radius:50%;
+
+  margin-bottom:18px;
+
   animation:spin 1s linear infinite;
-  margin-bottom:15px;
 }
 
 @keyframes spin{
+
   to{
     transform:rotate(360deg);
   }
+
 }
 
-/* RESPONSIVO */
-
-@media (max-width:480px){
-
-  body{
-    padding:10px;
-  }
+@media(max-width:500px){
 
   .container{
-    max-width:100%;
-    padding:22px 18px;
-    border-radius:18px;
-  }
 
-  .icon{
-    font-size:2.6rem;
+    padding:28px 22px;
+
   }
 
   h1{
-    font-size:1.55rem;
+
+    font-size:26px;
+
   }
 
-  p{
-    font-size:.9rem;
+  .hero-icon{
+
+    width:95px;
+    height:95px;
+
   }
 
-  select,
-  button{
-    font-size:.95rem;
-    padding:14px;
+  .hero-icon img{
+
+    width:58px;
+    height:58px;
+
   }
 
-  footer{
-    font-size:.72rem;
-  }
-}
-
-@media (max-width:320px){
-
-  .icon{
-    font-size:2.2rem;
-  }
-
-  h1{
-    font-size:1.3rem;
-  }
-
-  select,
-  button{
-    padding:12px;
-    font-size:.9rem;
-  }
 }
 
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-  <div class="icon">📅</div>
+<div class="hero-icon">
 
-  <h1>Consulta de Horários</h1>
+<img
+src="https://cdn-icons-png.flaticon.com/512/4341/4341139.png"
+alt="Calendário">
 
-  <p>Escolha o período e o tipo de consulta</p>
+</div>
 
-  <button id="toggleTheme" class="theme-btn">
-    🌙 Modo Escuro
-  </button>
+<div class="school-badge">
+EE Caetano de Campos
+</div>
 
-  <div class="form-group">
-    <label for="periodo">Período</label>
+<h1>Consulta de Horários</h1>
 
-    <select id="periodo">
-      <option value="manha">Manhã</option>
-      <option value="tarde">Tarde</option>
-    </select>
-  </div>
+<p class="subtitle">
+Consulte horários, professores, turmas,
+projetos e reservas de forma rápida,
+moderna e intuitiva.
+</p>
 
-  <div class="form-group">
-    <label for="consulta">Consulta</label>
+<button
+id="toggleTheme"
+class="theme-btn">
+🌙 Modo Escuro
+</button>
 
-    <select id="consulta">
-      <option value="salas">Salas / Turmas</option>
-      <option value="professores">Professores</option>
-      <option value="reserva">Reserva de Salas</option>
-      <option value="responsável">Projetos</option>
-      <option value="tabeladoM">TAB – Manhã</option>
-      <option value="tabeladoT">TAB – Tarde</option>
-    </select>
-  </div>
+<div class="form-group">
 
-  <button onclick="consultarHorario()">Consultar</button>
+<label for="periodo">
+Período
+</label>
 
-  <footer>
-    © 2026 • <br>
-    EECC
-  </footer>
+<select id="periodo">
+
+<option value="manha">
+Manhã
+</option>
+
+<option value="tarde">
+Tarde
+</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label for="consulta">
+Consulta
+</label>
+
+<select id="consulta">
+
+<option value="salas">
+Salas / Turmas
+</option>
+
+<option value="professores">
+Professores
+</option>
+
+<option value="reserva">
+Reserva de Salas
+</option>
+
+<option value="responsável">
+Projetos
+</option>
+
+<option value="tabeladoM">
+TAB – Manhã
+</option>
+
+<option value="tabeladoT">
+TAB – Tarde
+</option>
+
+</select>
+
+</div>
+
+<button onclick="consultarHorario()">
+Consultar Horário
+</button>
+
+<footer>
+EE Caetano de Campos<br>
+Consulta Inteligente de Horários • 2026
+</footer>
 
 </div>
 
 <div class="loading" id="loading">
-  <div class="spinner"></div>
-  <p>Abrindo horário...</p>
+
+<div class="spinner"></div>
+
+<p>
+Abrindo horário...
+</p>
+
 </div>
 
 <script>
+/* =====================================
+   CONSULTA DE HORÁRIOS
+===================================== */
+
 function consultarHorario() {
 
   const periodo = document.getElementById('periodo').value;
@@ -328,25 +584,55 @@ function consultarHorario() {
   let link = '';
 
   if (periodo === 'manha' && consulta === 'salas') {
-    link = 'https://drive.google.com/file/d/1D48q3kgDMGc8YMxzeRqsv6nCChZWT1_b/view';
 
-  } else if (periodo === 'tarde' && consulta === 'salas') {
-    link = 'https://drive.google.com/file/d/1XRSBMViNVFxVqafAFm6lmKQPw4kdVFyh/view';
+    link =
+    'https://drive.google.com/file/d/1D48q3kgDMGc8YMxzeRqsv6nCChZWT1_b/view';
 
-  } else if (periodo === 'manha' && consulta === 'professores') {
-    link = 'https://drive.google.com/file/d/1d8mOtIMI8avP71uPFwkuFEfKwIgFK85r/view';
+  }
 
-  } else if (periodo === 'tarde' && consulta === 'professores') {
-    link = 'https://drive.google.com/file/d/1cRgInPQtgzgCBFoK14evorMnPB39TZgW/view';
+  else if (periodo === 'tarde' && consulta === 'salas') {
 
-  } else if (consulta === 'reserva' || consulta === 'responsável') {
-    link = 'https://drive.google.com/file/d/18pzuHCD-bfLUu4Lxhny6rppRyzwDz_vh/view?usp=drivesdk';
+    link =
+    'https://drive.google.com/file/d/1XRSBMViNVFxVqafAFm6lmKQPw4kdVFyh/view';
 
-  } else if (consulta === 'tabeladoM') {
-    link = 'https://drive.google.com/file/d/12E2IMJpzFLZwhBSqH2tPDfUxo2rGHlOP/view';
+  }
 
-  } else if (consulta === 'tabeladoT') {
-    link = 'https://drive.google.com/file/d/1ii4NNx2EuIRpbXCfeJQi3bwXSqjnnB7A/view';
+  else if (periodo === 'manha' && consulta === 'professores') {
+
+    link =
+    'https://drive.google.com/file/d/1d8mOtIMI8avP71uPFwkuFEfKwIgFK85r/view';
+
+  }
+
+  else if (periodo === 'tarde' && consulta === 'professores') {
+
+    link =
+    'https://drive.google.com/file/d/1cRgInPQtgzgCBFoK14evorMnPB39TZgW/view';
+
+  }
+
+  else if (
+    consulta === 'reserva' ||
+    consulta === 'responsável'
+  ) {
+
+    link =
+    'https://drive.google.com/file/d/18pzuHCD-bfLUu4Lxhny6rppRyzwDz_vh/view?usp=drivesdk';
+
+  }
+
+  else if (consulta === 'tabeladoM') {
+
+    link =
+    'https://drive.google.com/file/d/12E2IMJpzFLZwhBSqH2tPDfUxo2rGHlOP/view';
+
+  }
+
+  else if (consulta === 'tabeladoT') {
+
+    link =
+    'https://drive.google.com/file/d/1ii4NNx2EuIRpbXCfeJQi3bwXSqjnnB7A/view';
+
   }
 
   if (link) {
@@ -354,7 +640,9 @@ function consultarHorario() {
     document.getElementById('loading').style.display = 'flex';
 
     setTimeout(() => {
+
       window.location.href = link;
+
     }, 900);
 
   } else {
@@ -362,65 +650,164 @@ function consultarHorario() {
     alert('Selecione as opções corretamente.');
 
   }
+
 }
 
-/* ==========================
-   MODO ESCURO COM ANIMAÇÃO
-========================== */
+/* =====================================
+   MODO ESCURO PREMIUM
+===================================== */
 
-const toggleTheme = document.getElementById('toggleTheme');
+const toggleTheme =
+document.getElementById('toggleTheme');
 
-if (localStorage.getItem('theme') === 'dark') {
+/* CARREGA O TEMA SALVO */
+
+if (
+  localStorage.getItem('theme') === 'dark'
+) {
 
   document.body.classList.add('dark');
-  toggleTheme.innerHTML = '☀️ Modo Claro';
+
+  toggleTheme.innerHTML =
+  '☀️ Modo Claro';
 
 }
+
+/* ALTERNA O TEMA */
 
 toggleTheme.addEventListener('click', () => {
 
-  document.body.style.opacity = '0.96';
+  document.body.style.opacity = '.97';
 
   setTimeout(() => {
 
     document.body.classList.toggle('dark');
 
-    if (document.body.classList.contains('dark')) {
+    if (
+      document.body.classList.contains('dark')
+    ) {
 
-      localStorage.setItem('theme', 'dark');
-      toggleTheme.innerHTML = '☀️ Modo Claro';
+      localStorage.setItem(
+        'theme',
+        'dark'
+      );
+
+      toggleTheme.innerHTML =
+      '☀️ Modo Claro';
 
     } else {
 
-      localStorage.setItem('theme', 'light');
-      toggleTheme.innerHTML = '🌙 Modo Escuro';
+      localStorage.setItem(
+        'theme',
+        'light'
+      );
+
+      toggleTheme.innerHTML =
+      '🌙 Modo Escuro';
 
     }
 
     setTimeout(() => {
-      document.body.style.opacity = '1';
-    }, 50);
 
-  }, 100);
+      document.body.style.opacity = '1';
+
+    }, 80);
+
+  }, 120);
 
 });
 
-/* ==========================
+/* =====================================
+   ANIMAÇÃO DE ENTRADA
+===================================== */
+
+window.addEventListener('load', () => {
+
+  const container =
+  document.querySelector('.container');
+
+  container.animate(
+    [
+      {
+        opacity: 0,
+        transform:
+        'translateY(40px)'
+      },
+      {
+        opacity: 1,
+        transform:
+        'translateY(0)'
+      }
+    ],
+    {
+      duration: 700,
+      easing: 'ease-out'
+    }
+  );
+
+});
+
+/* =====================================
+   EFEITO PARALLAX LEVE NO CARD
+===================================== */
+
+const card =
+document.querySelector('.container');
+
+document.addEventListener(
+'mousemove',
+(e) => {
+
+  const x =
+  (window.innerWidth / 2 - e.clientX)
+  / 45;
+
+  const y =
+  (window.innerHeight / 2 - e.clientY)
+  / 45;
+
+  card.style.transform =
+  `rotateY(${x}deg) rotateX(${-y}deg)`;
+
+});
+
+document.addEventListener(
+'mouseleave',
+() => {
+
+  card.style.transform =
+  'rotateY(0deg) rotateX(0deg)';
+
+});
+
+/* =====================================
    SERVICE WORKER
-========================== */
+===================================== */
 
 if ('serviceWorker' in navigator) {
 
   navigator.serviceWorker
     .register('sw.js')
+
     .then(() => {
-      console.log('Service Worker registrado');
+
+      console.log(
+      '✅ Service Worker registrado'
+      );
+
     })
-    .catch(error => {
-      console.log('Erro ao registrar SW:', error);
+
+    .catch((erro) => {
+
+      console.log(
+      'Erro ao registrar SW:',
+      erro
+      );
+
     });
 
 }
+
 </script>
 
 </body>
