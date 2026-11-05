@@ -88,41 +88,12 @@
 <br>
     <br>
   <div class="container">
-    <h2>MATERIAL DIGITAL</h2>
+    <h2>BIBLIOTECA DIGITAL</h2>
     
-<button onclick="window.open('https://drive.google.com/drive/folders/1pJYxzAyAhH11pbNu2UwffgCCOnKAeae8?usp=sharing', '_blank')">Acesso</button>
+<button onclick="window.open('https://drive.google.com/file/d/12BuNgOGwpAbmyHGZJokkabGjOc_6bSFl/view?usp=sharing', '_blank')">Acesso</button>
 </div>
 <br>
     <br>
-  <div class="container">
-    <h2>OUTROS DOCUMENTOS</h2>
-
-    <input
-      type="password"
-      id="senha"
-      placeholder="Digite a senha"
-      onkeypress="if(event.key==='Enter') verificarSenha()"
-    />
-
-    <button onclick="verificarSenha()">Entrar</button>
-
-    <div class="erro" id="erro">Senha incorreta. Tente novamente.</div>
-  </div>
-
-</div>
-
-<script>
-    function verificarSenha() {
-      const senhaCorreta = "Caetano2026@";
-      const senhaDigitada = document.getElementById("senha").value;
-
-      if (senhaDigitada === senhaCorreta) {
-        window.location.href = "https://caetanodecampos.my.canva.site/planosdeaula";
-      } else {
-        document.getElementById("erro").style.display = "block";
-      }
-    }
-  </script>
-</body>
+  </body>
 </html>
 
