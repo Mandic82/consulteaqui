@@ -451,11 +451,58 @@ body.dark select{
 
   }
 
-  .hero-icon img{
+ .hero-icon{
 
-    width:58px;
-    height:58px;
+  width:140px;
+  height:140px;
 
+  margin:0 auto 20px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:
+  linear-gradient(
+  135deg,
+  rgba(255,255,255,.25),
+  rgba(255,255,255,.05)
+  );
+
+  backdrop-filter:blur(15px);
+
+  box-shadow:
+  0 15px 45px rgba(0,0,0,.25);
+
+  animation:floatIcon 5s ease-in-out infinite;
+
+}
+
+.hero-icon img{
+
+  width:95px;
+  height:95px;
+
+  object-fit:contain;
+
+  filter:
+  drop-shadow(0 8px 12px rgba(0,0,0,.25));
+
+}
+@keyframes floatIcon{
+
+  0%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-8px);
+  }
+
+  100%{
+    transform:translateY(0);
   }
 
 }
@@ -471,8 +518,8 @@ body.dark select{
 <div class="hero-icon">
 
 <img
-src="<a href="https://commons.wikimedia.org/wiki/File:Round_Landmark_School_Icon_-_Transparent.svg" title="Peter J. Mello &lt;admin＠petermello.net&gt;, CC BY-SA 4.0, via Wikimedia Commons"><img width="600" height="600" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Round_Landmark_School_Icon_-_Transparent.svg/960px-Round_Landmark_School_Icon_-_Transparent.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=index&amp;utm_content=thumbnail" srcset="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Round_Landmark_School_Icon_-_Transparent.svg/250px-Round_Landmark_School_Icon_-_Transparent.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=index&amp;utm_content=thumbnail 250w, https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Round_Landmark_School_Icon_-_Transparent.svg/500px-Round_Landmark_School_Icon_-_Transparent.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=index&amp;utm_content=thumbnail 500w, https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Round_Landmark_School_Icon_-_Transparent.svg/960px-Round_Landmark_School_Icon_-_Transparent.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=index&amp;utm_content=thumbnail 960w, https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Round_Landmark_School_Icon_-_Transparent.svg/1280px-Round_Landmark_School_Icon_-_Transparent.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=index&amp;utm_content=thumbnail 1280w, https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Round_Landmark_School_Icon_-_Transparent.svg/3840px-Round_Landmark_School_Icon_-_Transparent.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=index&amp;utm_content=thumbnail 3840w" sizes="auto" loading="lazy" alt="Color icon of a school building"></a>"
-alt="Calendário">
+src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Round_Landmark_School_Icon_-_Transparent.svg/960px-Round_Landmark_School_Icon_-_Transparent.svg.png"
+alt="Escola">
 
 </div>
 
